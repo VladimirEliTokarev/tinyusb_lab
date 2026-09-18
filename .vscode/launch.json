@@ -1,0 +1,49 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "QEMU Device (TinyUSB DCD)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/device/cdc_msc.elf",
+      "cwd": "${workspaceFolder}",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb-multiarch",
+      "miDebuggerServerAddress": "localhost:1234",
+      "setupCommands": [
+        { "text": "set architecture arm" },
+        { "text": "set remotetimeout 30" },
+        { "text": "monitor system_reset" }
+      ],
+      "stopAtEntry": true,
+      "externalConsole": false
+    },
+    {
+      "name": "QEMU Host (TinyUSB HCD/DWC2)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/host/cdc_msc_hid.elf",
+      "cwd": "${workspaceFolder}",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb-multiarch",
+      "miDebuggerServerAddress": "localhost:1235",
+      "setupCommands": [
+        { "text": "set architecture arm" },
+        { "text": "set remotetimeout 30" },
+        { "text": "monitor system_reset" }
+      ],
+      "stopAtEntry": true,
+      "externalConsole": false
+    }
+  ],
+  "compounds": [
+    {
+      "name": "QEMU Lab: Device + Host (dual GDB)",
+      "configurations": [
+        "QEMU Device (TinyUSB DCD)",
+        "QEMU Host (TinyUSB HCD/DWC2)"
+      ],
+      "stopAll": true
+    }
+  ]
+}

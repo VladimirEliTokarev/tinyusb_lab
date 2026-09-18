@@ -1,0 +1,7 @@
+CPU_CORE = arm1176jzf-s
+CFLAGS += -DBCM_VERSION=2835 \
+          -DCFG_TUSB_MCU=OPT_MCU_BCM2835 \
+          -DQEMU_RASPI0=1 \
+          -DQEMU_ROLE_DEVICE=1
+
+SUFFIX =

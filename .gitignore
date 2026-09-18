@@ -1,0 +1,20 @@
+# Cloned upstream TinyUSB (created by setup.sh)
+tinyusb/
+
+# Build artifacts
+build_native/
+cmake-build-*/
+*.o
+*.elf
+*.bin
+*.hex
+*.map
+
+# Runtime files
+*.sock
+*.pcap
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
