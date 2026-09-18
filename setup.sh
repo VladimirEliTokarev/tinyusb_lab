@@ -19,6 +19,9 @@ echo " TinyUSB QEMU Lab Setup"
 echo "============================================"
 echo ""
 
+# Fix WSL2 cross-filesystem git ownership check
+git config --global --add safe.directory '*'
+
 # Step 1: Clone upstream TinyUSB
 if [ -d "$TINYUSB_DIR" ]; then
   echo "[1/5] TinyUSB already cloned, pulling latest..."
